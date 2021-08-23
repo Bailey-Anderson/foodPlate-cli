@@ -1,3 +1,6 @@
 <footer class="header-footer">
-    <p>&copy; 2021 Food Plate Inc.</p>
+    <img [src]="icon" [alt]="logoAlt">
+    <p>&copy; 2021 Food Plate Inc. 
+        <small [attr.data-version]="versionString" [class.footer--update]="!isCurrent">Version {{ versionString }}</small>
+    </p>
 </footer>

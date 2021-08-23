@@ -27,3 +27,7 @@ footer > * {
 .footer--update::after {
     content: " Update Needed!";
 }
+
+img {
+    cursor: pointer;
+}

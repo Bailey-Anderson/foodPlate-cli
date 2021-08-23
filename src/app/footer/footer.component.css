@@ -1,0 +1,11 @@
+footer {
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    border-top: 3px solid #000;
+    text-align: left;
+}
+
+p {
+    margin-left: 10px;
+}

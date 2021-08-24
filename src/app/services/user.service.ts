@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Optional } from '@angular/core';
 import { User } from '../models/User';
+import { UserStatusService } from './user-status.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,8 @@ export class UserService {
     return this.user;
   }
 
-  constructor() { }
+  constructor(@Optional() private userStatusService: UserStatusService) {
+    this.userStatusService.getUserStatus(this.user);
+   }
 
 }

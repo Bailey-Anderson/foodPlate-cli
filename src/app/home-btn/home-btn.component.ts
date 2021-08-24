@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { User } from '../models/User';
 
 @Component({
   selector: 'fp-home-btn',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-btn.component.css']
 })
 export class HomeBtnComponent implements OnInit {
+
+  @Input() user: User;
 
   constructor() { }
 

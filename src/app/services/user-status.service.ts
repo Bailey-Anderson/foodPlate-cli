@@ -11,7 +11,7 @@ export class UserStatusService {
 
   getRegisterStatus(currentUser) {
     if(currentUser.registered === true) {
-      console.log(`User REgistered is: ${currentUser.registered}`);
+      console.log(`User Registered is: ${currentUser.registered}`);
     }
   }
 

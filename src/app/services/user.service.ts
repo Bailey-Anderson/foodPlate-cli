@@ -17,6 +17,6 @@ export class UserService {
 
   constructor(@Optional() private userStatusService: UserStatusService) {
     this.userStatusService.getUserStatus(this.user);
-   }
+  }
 
 }

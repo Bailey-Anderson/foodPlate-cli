@@ -15,6 +15,8 @@ import { NavComponent } from './nav/nav.component';
 import { DefaultComponent } from './components/default/default.component';
 import { RegisterComponent } from './register/register.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FarmersMarketComponent } from './farmers-markets/farmers-market.component';
+import { ExercisesComponent } from './exercises/exercises.component';
 
 @NgModule({
   declarations: [ 
@@ -27,7 +29,7 @@ import { AppRoutingModule } from './app-routing.module';
     MessageComponent, 
     NavComponent,
     RegisterComponent, 
-    DefaultComponent ],
+    DefaultComponent, FarmersMarketComponent, ExercisesComponent ],
   imports: [
     AppRoutingModule,
     CommonModule,

@@ -11,9 +11,10 @@ import { HomeBtnComponent } from './home-btn/home-btn.component';
 import { PlateComponent } from './plate/plate.component';
 import { MessageComponent } from './message/message.component';
 import { FoodGroupsModule } from './food-groups/food-groups.module';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
-  declarations: [ AppComponent, HeaderComponent, FooterComponent, MainComponent, HomeBtnComponent, PlateComponent, MessageComponent ],
+  declarations: [ AppComponent, HeaderComponent, FooterComponent, MainComponent, HomeBtnComponent, PlateComponent, MessageComponent, NavComponent ],
   imports: [
     CommonModule,
     BrowserModule,

@@ -17,28 +17,31 @@ import { RegisterComponent } from './register/register.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FarmersMarketComponent } from './farmers-markets/farmers-market.component';
 import { ExercisesComponent } from './exercises/exercises.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [ 
-    AppComponent, 
-    HeaderComponent, 
-    FooterComponent, 
-    MainComponent, 
-    HomeBtnComponent, 
-    PlateComponent, 
-    MessageComponent, 
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    MainComponent,
+    HomeBtnComponent,
+    PlateComponent,
+    MessageComponent,
     NavComponent,
-    RegisterComponent, 
-    DefaultComponent, FarmersMarketComponent, ExercisesComponent ],
+    RegisterComponent,
+    DefaultComponent,
+    FarmersMarketComponent,
+    ExercisesComponent,
+  ],
   imports: [
     AppRoutingModule,
     CommonModule,
     BrowserModule,
     FoodGroupsModule,
+    ReactiveFormsModule,
   ],
-  bootstrap: [ AppComponent ],
-  providers: [ UserService ]
+  bootstrap: [AppComponent],
+  providers: [UserService],
 })
-
-export class AppModule { }
-
+export class AppModule {}

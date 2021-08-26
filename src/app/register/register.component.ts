@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../models/User';
 import { UserService } from '../services/user.service';
@@ -7,24 +7,37 @@ import { UserService } from '../services/user.service';
 @Component({
   selector: 'fp-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-
   currentUser: User;
-  ageGroups = ['select your age group', '2-3', '4-8', '9-13', '14-18', '19-30', '31-50', '51+'];
+  ageGroups = [
+    'select your age group',
+    '2-3',
+    '4-8',
+    '9-13',
+    '14-18',
+    '19-30',
+    '31-50',
+    '51+',
+  ];
   regForm: FormGroup;
 
-  constructor(private userService: UserService,
-              private fb: FormBuilder,
-              private router: Router) {
-                this.regForm = fb.group({
-                  'firstname': [null],
-                  'email': [null],
-                  'gender': [null],
-                  'ageGroup': [null]
-                })
-               }
+  constructor(
+    private userService: UserService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {
+    this.regForm = fb.group({
+      firstname: [null, [Validators.required]],
+      email: [
+        null,
+        Validators.compose([Validators.required, Validators.email]),
+      ],
+      gender: [null, [Validators.required]],
+      ageGroup: [null, [Validators.required]],
+    });
+  }
   onSubmit(formValues) {
     const currentUser = this.regForm.value;
     this.currentUser = currentUser;
@@ -35,13 +48,11 @@ export class RegisterComponent implements OnInit {
       fruitMet: false,
       vegMet: false,
       proteinMet: false,
-      grainMet: false
+      grainMet: false,
     };
     localStorage.setItem('User', JSON.stringify(currentUser));
     console.log(formValues);
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

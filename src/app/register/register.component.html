@@ -1,21 +1,48 @@
-<form [formGroup]="regForm" (ngSubmit)="onSubmit(regForm.value)" class="box" id="registerForm">
+<form
+  [formGroup]="regForm"
+  (ngSubmit)="onSubmit(regForm.value)"
+  name="registerForm"
+  class="box"
+  id="registerForm"
+>
   <label for="firstname" class="block labelTop">First Name</label>
   <input
     type="text"
     id="firstname"
+    name="firstname"
+    autocomplete="name"
     formControlName="firstname"
     tabindex="1"
     placeholder="Enter your first name here."
   />
+  <p
+    *ngIf="
+      !regForm.controls['firstname'].valid &&
+      regForm.controls['firstname'].touched
+    "
+    class="formMessage"
+  >
+    Please enter a first name.
+  </p>
   <label for="email" class="block labelTop">Email</label>
   <input
     type="email"
+    name="email"
     id="email"
     formControlName="email"
     placeholder="Enter your email address here."
     minlength="5"
     tabindex="2"
+    autocomplete="email"
   />
+  <p
+    *ngIf="
+      !regForm.controls['email'].valid && regForm.controls['email'].touched
+    "
+    class="formMessage"
+  >
+    Please enter a valid email address.
+  </p>
   <section id="genderFields">
     <label for="sexF">
       <input
@@ -37,11 +64,25 @@
         tabindex="4"
         value="M"
         class="radioLg"
-      />Male
-    </label>
+      />Male</label
+    >
   </section>
+  <p
+    *ngIf="
+      !regForm.controls['gender'].valid && regForm.controls['gender'].touched
+    "
+    class="formMessage"
+  >
+    Please enter your gender.
+  </p>
   <label for="ageGroup" class="block labelTop">Age Group</label>
-  <select id="ageGroup" size="1" formControlName="ageGroup" tabindex="5">
+  <select
+    name="ageGroup"
+    id="ageGroup"
+    size="1"
+    formControlName="ageGroup"
+    tabindex="5"
+  >
     <option
       *ngFor="let group of ageGroups; let i = index"
       value="{{ this.ageGroups[i] }}"
@@ -49,11 +90,19 @@
       {{ this.ageGroups[i] }}
     </option>
   </select>
+  <p
+    *ngIf="
+      !regForm.controls['ageGroup'].valid &&
+      regForm.controls['ageGroup'].touched
+    "
+    class="formMessage"
+  >
+    Please enter your age group.
+  </p>
   <input
     type="submit"
     tabindex="7"
     id="register-user"
-    value="Register"
     class="fpButton box-extra"
   />
 </form>

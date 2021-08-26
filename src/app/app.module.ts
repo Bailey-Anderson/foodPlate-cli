@@ -34,7 +34,7 @@ import { ExercisesComponent } from './exercises/exercises.component';
     AppRoutingModule,
     CommonModule,
     BrowserModule,
-    FoodGroupsModule
+    FoodGroupsModule,
   ],
   bootstrap: [ AppComponent ],
   providers: [ UserService ]

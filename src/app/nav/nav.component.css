@@ -9,8 +9,9 @@ ul {
   align-items: center;
   justify-content: center;
 }
-li {
+li > a {
   color: #fff;
+  text-decoration: none;
   display: inline;
   background-image: url(../../assets/images/icons/diamond.svg);
   background-position: right center;
@@ -19,7 +20,7 @@ li {
   padding-left: 0.45em;
   cursor: pointer;
 }
-.active {
+nav ul li a.active {
   color: #ef952b;
 }
 li:last-child {

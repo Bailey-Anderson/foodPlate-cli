@@ -11,7 +11,9 @@ import { UserService } from './services/user.service';
 })
 export class AppComponent implements OnInit {
 
-  user: User;
+  // user: User;
+  currentUser: User;
+  title: any;
 
   constructor(
     private titleService: Title,
@@ -20,7 +22,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle('Weclome to FoodPlate');
-    this.user = this.userService.getUser();
+    // this.user = this.userService.getUser();
+    this.userService.getUser();
+    this.userService.currentUser.subscribe(user => this.currentUser = user);
   }
 
 }

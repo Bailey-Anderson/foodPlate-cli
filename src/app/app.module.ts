@@ -19,6 +19,7 @@ import { FarmersMarketComponent } from './farmers-markets/farmers-market.compone
 import { ExercisesComponent } from './exercises/exercises.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TodaysGoalComponent } from './todays-goal/todays-goal.component';
+import { FoodComponent } from './food/food.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { TodaysGoalComponent } from './todays-goal/todays-goal.component';
     FarmersMarketComponent,
     ExercisesComponent,
     TodaysGoalComponent,
+    FoodComponent,
   ],
   imports: [
     AppRoutingModule,

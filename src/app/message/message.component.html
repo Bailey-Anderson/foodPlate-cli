@@ -1,3 +1,4 @@
-<section>
-    <p>message is working</p>
+<section [ngSwitch]="currentUser">
+    <p *ngSwitchCase="currentUser.reqsStatus.fruitMet">Fruit goal met for the day</p>
+    <p *ngSwitchCase="!currentUser.reqsStatus.fruitMet">Eat more fruit to meet your goal!</p>
 </section>

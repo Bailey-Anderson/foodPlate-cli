@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./protein-detail.component.css']
 })
 export class ProteinDetailComponent implements OnInit {
+  proteinSample = {
+    'calories' : 120,
+    'protein' : 9
+  };
 
   constructor() { }
 

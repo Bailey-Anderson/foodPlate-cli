@@ -4,10 +4,12 @@ import { FruitDetailComponent } from './food-detail/fruit-detail/fruit-detail.co
 import { ProteinDetailComponent } from './food-detail/protein-detail/protein-detail.component';
 import { VegetableDetailComponent } from './food-detail/vegetable-detail/vegetable-detail.component';
 import { GrainsDetailComponent } from './food-detail/grains-detail/grains-detail.component';
+import { FoodGroupsGuardService } from '../services/food-groups-guard.service';
 
 export const foodGroupsRoutes = [
   {
     path: 'foodGroups',
+    canActivateChild: [FoodGroupsGuardService],
     children: [
       {
         path: '',

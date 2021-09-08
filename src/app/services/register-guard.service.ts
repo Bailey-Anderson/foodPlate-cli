@@ -6,7 +6,7 @@ import { UserService } from './user.service';
 @Injectable({
   providedIn: 'root'
 })
-export class RegisterGuardService {
+export class RegisterGuardService implements CanActivate {
 
   currentUser: User;
 

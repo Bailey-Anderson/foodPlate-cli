@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../models/User';
 import { UserService } from '../services/user.service';
@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit {
     '31-50',
     '51+',
   ];
+  submit: boolean;
   regForm: FormGroup;
 
   constructor(
@@ -28,19 +29,25 @@ export class RegisterComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router
   ) {
-    this.regForm = fb.group({
-      firstname: [null, [Validators.required]],
-      email: [
-        null,
-        Validators.compose([Validators.required, Validators.email]),
-      ],
-      gender: [null, [Validators.required]],
-      ageGroup: [null, [Validators.required]],
+    this.regForm = new FormGroup({
+      firstname: new FormControl(null, [Validators.required]),
+      email: new FormControl(null, [Validators.required,
+        Validators.email]),
+      gender: new FormControl(null, [Validators.required]),
+      ageGroup: new FormControl(null, [Validators.required])
     });
   }
+
+  canDeactivate() {
+    console.log(!this.regForm.touched);
+    return !this.regForm.touched || this.submit;
+  }
+
   onSubmit(formValues) {
+    this.submit = true;
     this.userService.updateUser(formValues);
     UserService.storeUserLocal(formValues);
+    this.router.navigate(['myPlate']);
   }
 
   ngOnInit(): void {

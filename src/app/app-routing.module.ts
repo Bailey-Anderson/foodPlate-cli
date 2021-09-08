@@ -5,8 +5,10 @@ import { ExercisesComponent } from './exercises/exercises.component';
 import { FarmersMarketComponent } from './farmers-markets/farmers-market.component';
 import { foodGroupsRoutes } from './food-groups/food-groups.routing';
 import { FoodComponent } from './food/food.component';
+import { GoalsComponent } from './goals/goals.component';
 import { PlateComponent } from './plate/plate.component';
 import { RegisterComponent } from './register/register.component';
+import { LeaveRegisterGuardService } from './services/leave-register-guard.service';
 import { RegisterGuardService } from './services/register-guard.service';
 
 class AllowFullAccessGuard implements CanActivate {
@@ -27,12 +29,14 @@ const routes: Routes = [
     children: [
       { path: 'myPlate', component: PlateComponent, canActivate: [RegisterGuardService]},
       { path: '', component: DefaultComponent },
-      { path: 'register', component: RegisterComponent },
+      { path: 'register', component: RegisterComponent, canDeactivate: [LeaveRegisterGuardService] },
       { path: 'farmersMarkets', component: FarmersMarketComponent },
       { path: 'exercises', component: ExercisesComponent },
       { path: 'nutritionInfo', component: FoodComponent },
       { path: 'myPlate', component: PlateComponent },
-      ...foodGroupsRoutes,
+      { path: 'goals', component: GoalsComponent},
+      { path: 'foodGroups', loadChildren: () => import('./food-groups/food-groups.module')
+                                .then(mod => mod.FoodGroupsModule)},
       fallbackRoute,
     ],
   },

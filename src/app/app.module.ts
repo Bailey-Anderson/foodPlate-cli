@@ -20,6 +20,7 @@ import { ExercisesComponent } from './exercises/exercises.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TodaysGoalComponent } from './todays-goal/todays-goal.component';
 import { FoodComponent } from './food/food.component';
+import { GoalsComponent } from './goals/goals.component';
 
 @NgModule({
   declarations: [
@@ -37,12 +38,12 @@ import { FoodComponent } from './food/food.component';
     ExercisesComponent,
     TodaysGoalComponent,
     FoodComponent,
+    GoalsComponent,
   ],
   imports: [
     AppRoutingModule,
     CommonModule,
     BrowserModule,
-    FoodGroupsModule,
     ReactiveFormsModule,
     HttpClientModule
   ],
